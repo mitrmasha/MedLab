@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище MedLabModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Analizator$">
+          <Key>
+            <PropertyRef Name="IDAnalizator" />
+          </Key>
+          <Property Name="IDAnalizator" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Analizator" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Chet$">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDBug" Type="int" />
+          <Property Name="Sum" Type="float" />
+          <Property Name="dateOt" Type="date" />
+          <Property Name="dateDo" Type="date" />
+          <Property Name="IDStrahKomp" Type="int" />
+        </EntityType>
+        <EntityType Name="DanneAnalizatora$">
+          <Key>
+            <PropertyRef Name="IDDanni" />
+          </Key>
+          <Property Name="IDDanni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDAnalizator" Type="int" />
+          <Property Name="DateVremaPostupYslugi" Type="datetime" />
+          <Property Name="VremaVapol" Type="varchar" MaxLength="255" />
+          <Property Name="IDLaboranta" Type="int" />
+          <Property Name="IDYslugaVZakaze" Type="int" />
+        </EntityType>
+        <EntityType Name="histor$">
+          <Key>
+            <PropertyRef Name="IDHistor" />
+          </Key>
+          <Property Name="IDHistor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDPolzovatel" Type="int" />
+          <Property Name="ip" Type="varchar" MaxLength="255" />
+          <Property Name="DataNach" Type="datetime" />
+          <Property Name="lastenter" Type="datetime" />
+          <Property Name="IDPrichina" Type="int" />
+        </EntityType>
+        <EntityType Name="IDPrichina$">
+          <Key>
+            <PropertyRef Name="IDIDPrichina" />
+          </Key>
+          <Property Name="IDIDPrichina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Prichina" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Polzovatel$">
+          <Key>
+            <PropertyRef Name="IDPolzovatel" />
+          </Key>
+          <Property Name="IDPolzovatel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" />
+          <Property Name="familia" Type="varchar" MaxLength="30" />
+          <Property Name="login" Type="varchar" MaxLength="225" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="dateHappyBiz" Type="date" />
+          <Property Name="SeriaPasPort" Type="int" />
+          <Property Name="NomerPasPort" Type="int" />
+          <Property Name="telefon" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="numberStrahPolic" Type="varchar" MaxLength="255" />
+          <Property Name="IDtypetrahPolic" Type="int" />
+          <Property Name="IDStrahovaiKompania" Type="int" />
+          <Property Name="IDRol" Type="int" />
+          <Property Name="kartinka" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rol$">
+          <Key>
+            <PropertyRef Name="IDRol" />
+          </Key>
+          <Property Name="IDRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <EntityType Name="Status$">
+          <Key>
+            <PropertyRef Name="IDStatus" />
+          </Key>
+          <Property Name="IDStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="StrahovaiKompania$">
+          <Key>
+            <PropertyRef Name="IDStrahovaiKompania" />
+          </Key>
+          <Property Name="IDStrahovaiKompania" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="adres" Type="varchar" MaxLength="255" />
+          <Property Name="inn" Type="float" />
+          <Property Name="rc" Type="float" />
+          <Property Name="bik" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypeStrahPolic$">
+          <Key>
+            <PropertyRef Name="IDtypetrahPolic" />
+          </Key>
+          <Property Name="IDtypetrahPolic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typetrahPolic" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Yslugi$">
+          <Key>
+            <PropertyRef Name="IDYslugi" />
+          </Key>
+          <Property Name="IDYslugi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="float" />
+          <Property Name="SrokVapol" Type="int" />
+          <Property Name="Ot" Type="float" />
+          <Property Name="Do" Type="float" />
+          <Property Name="metka" Type="int" />
+        </EntityType>
+        <EntityType Name="YslugiVZakazah$">
+          <Key>
+            <PropertyRef Name="IDYslugaVZakaze" />
+          </Key>
+          <Property Name="IDYslugaVZakaze" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDZakaz" Type="int" />
+          <Property Name="IDYslugi" Type="int" />
+          <Property Name="IDStatus" Type="int" />
+          <Property Name="ShtihKod" Type="varchar(max)" />
+          <Property Name="Result" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Zakaz$">
+          <Key>
+            <PropertyRef Name="IDZakaz" />
+          </Key>
+          <Property Name="IDZakaz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateSozdania" Type="datetime" />
+          <Property Name="IDPolzovatel" Type="int" />
+          <Property Name="IDStatus" Type="int" />
+          <Property Name="VapolnenieZakaza" Type="int" />
+        </EntityType>
+        <Association Name="FK_Chet$_Polzovatel$1">
+          <End Role="Polzovatel$" Type="Self.Polzovatel$" Multiplicity="0..1" />
+          <End Role="Chet$" Type="Self.Chet$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel$">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="Chet$">
+              <PropertyRef Name="IDBug" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chet$_StrahovaiKompania$">
+          <End Role="StrahovaiKompania$" Type="Self.StrahovaiKompania$" Multiplicity="0..1" />
+          <End Role="Chet$" Type="Self.Chet$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StrahovaiKompania$">
+              <PropertyRef Name="IDStrahovaiKompania" />
+            </Principal>
+            <Dependent Role="Chet$">
+              <PropertyRef Name="IDStrahKomp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanneAnalizatora$_Analizator$">
+          <End Role="Analizator$" Type="Self.Analizator$" Multiplicity="0..1" />
+          <End Role="DanneAnalizatora$" Type="Self.DanneAnalizatora$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analizator$">
+              <PropertyRef Name="IDAnalizator" />
+            </Principal>
+            <Dependent Role="DanneAnalizatora$">
+              <PropertyRef Name="IDAnalizator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanneAnalizatora$_Polzovatel$">
+          <End Role="Polzovatel$" Type="Self.Polzovatel$" Multiplicity="0..1" />
+          <End Role="DanneAnalizatora$" Type="Self.DanneAnalizatora$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel$">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="DanneAnalizatora$">
+              <PropertyRef Name="IDLaboranta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanneAnalizatora$_YslugiVZakazah$">
+          <End Role="YslugiVZakazah$" Type="Self.YslugiVZakazah$" Multiplicity="0..1" />
+          <End Role="DanneAnalizatora$" Type="Self.DanneAnalizatora$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YslugiVZakazah$">
+              <PropertyRef Name="IDYslugaVZakaze" />
+            </Principal>
+            <Dependent Role="DanneAnalizatora$">
+              <PropertyRef Name="IDYslugaVZakaze" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_histor$_IDPrichina$">
+          <End Role="IDPrichina$" Type="Self.IDPrichina$" Multiplicity="0..1" />
+          <End Role="histor$" Type="Self.histor$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IDPrichina$">
+              <PropertyRef Name="IDIDPrichina" />
+            </Principal>
+            <Dependent Role="histor$">
+              <PropertyRef Name="IDPrichina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_histor$_Polzovatel$">
+          <End Role="Polzovatel$" Type="Self.Polzovatel$" Multiplicity="0..1" />
+          <End Role="histor$" Type="Self.histor$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel$">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="histor$">
+              <PropertyRef Name="IDPolzovatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel$_Rol$">
+          <End Role="Rol$" Type="Self.Rol$" Multiplicity="0..1" />
+          <End Role="Polzovatel$" Type="Self.Polzovatel$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol$">
+              <PropertyRef Name="IDRol" />
+            </Principal>
+            <Dependent Role="Polzovatel$">
+              <PropertyRef Name="IDRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel$_StrahovaiKompania$">
+          <End Role="StrahovaiKompania$" Type="Self.StrahovaiKompania$" Multiplicity="0..1" />
+          <End Role="Polzovatel$" Type="Self.Polzovatel$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StrahovaiKompania$">
+              <PropertyRef Name="IDStrahovaiKompania" />
+            </Principal>
+            <Dependent Role="Polzovatel$">
+              <PropertyRef Name="IDStrahovaiKompania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel$_TypeStrahPolic$">
+          <End Role="TypeStrahPolic$" Type="Self.TypeStrahPolic$" Multiplicity="0..1" />
+          <End Role="Polzovatel$" Type="Self.Polzovatel$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeStrahPolic$">
+              <PropertyRef Name="IDtypetrahPolic" />
+            </Principal>
+            <Dependent Role="Polzovatel$">
+              <PropertyRef Name="IDtypetrahPolic" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YslugiVZakazah$_Status$">
+          <End Role="Status$" Type="Self.Status$" Multiplicity="0..1" />
+          <End Role="YslugiVZakazah$" Type="Self.YslugiVZakazah$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status$">
+              <PropertyRef Name="IDStatus" />
+            </Principal>
+            <Dependent Role="YslugiVZakazah$">
+              <PropertyRef Name="IDStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YslugiVZakazah$_Yslugi$">
+          <End Role="Yslugi$" Type="Self.Yslugi$" Multiplicity="0..1" />
+          <End Role="YslugiVZakazah$" Type="Self.YslugiVZakazah$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yslugi$">
+              <PropertyRef Name="IDYslugi" />
+            </Principal>
+            <Dependent Role="YslugiVZakazah$">
+              <PropertyRef Name="IDYslugi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YslugiVZakazah$_Zakaz$">
+          <End Role="Zakaz$" Type="Self.Zakaz$" Multiplicity="0..1" />
+          <End Role="YslugiVZakazah$" Type="Self.YslugiVZakazah$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zakaz$">
+              <PropertyRef Name="IDZakaz" />
+            </Principal>
+            <Dependent Role="YslugiVZakazah$">
+              <PropertyRef Name="IDZakaz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakaz$_Polzovatel$">
+          <End Role="Polzovatel$" Type="Self.Polzovatel$" Multiplicity="0..1" />
+          <End Role="Zakaz$" Type="Self.Zakaz$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel$">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="Zakaz$">
+              <PropertyRef Name="IDPolzovatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakaz$_Status$">
+          <End Role="Status$" Type="Self.Status$" Multiplicity="0..1" />
+          <End Role="Zakaz$" Type="Self.Zakaz$" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status$">
+              <PropertyRef Name="IDStatus" />
+            </Principal>
+            <Dependent Role="Zakaz$">
+              <PropertyRef Name="IDStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище MedLabModelContainer">
+          <EntitySet Name="Analizator$" EntityType="Self.Analizator$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chet$" EntityType="Self.Chet$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanneAnalizatora$" EntityType="Self.DanneAnalizatora$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="histor$" EntityType="Self.histor$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IDPrichina$" EntityType="Self.IDPrichina$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polzovatel$" EntityType="Self.Polzovatel$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol$" EntityType="Self.Rol$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status$" EntityType="Self.Status$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StrahovaiKompania$" EntityType="Self.StrahovaiKompania$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeStrahPolic$" EntityType="Self.TypeStrahPolic$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yslugi$" EntityType="Self.Yslugi$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YslugiVZakazah$" EntityType="Self.YslugiVZakazah$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zakaz$" EntityType="Self.Zakaz$" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Chet$_Polzovatel$1" Association="Self.FK_Chet$_Polzovatel$1">
+            <End Role="Polzovatel$" EntitySet="Polzovatel$" />
+            <End Role="Chet$" EntitySet="Chet$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chet$_StrahovaiKompania$" Association="Self.FK_Chet$_StrahovaiKompania$">
+            <End Role="StrahovaiKompania$" EntitySet="StrahovaiKompania$" />
+            <End Role="Chet$" EntitySet="Chet$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanneAnalizatora$_Analizator$" Association="Self.FK_DanneAnalizatora$_Analizator$">
+            <End Role="Analizator$" EntitySet="Analizator$" />
+            <End Role="DanneAnalizatora$" EntitySet="DanneAnalizatora$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanneAnalizatora$_Polzovatel$" Association="Self.FK_DanneAnalizatora$_Polzovatel$">
+            <End Role="Polzovatel$" EntitySet="Polzovatel$" />
+            <End Role="DanneAnalizatora$" EntitySet="DanneAnalizatora$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanneAnalizatora$_YslugiVZakazah$" Association="Self.FK_DanneAnalizatora$_YslugiVZakazah$">
+            <End Role="YslugiVZakazah$" EntitySet="YslugiVZakazah$" />
+            <End Role="DanneAnalizatora$" EntitySet="DanneAnalizatora$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_histor$_IDPrichina$" Association="Self.FK_histor$_IDPrichina$">
+            <End Role="IDPrichina$" EntitySet="IDPrichina$" />
+            <End Role="histor$" EntitySet="histor$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_histor$_Polzovatel$" Association="Self.FK_histor$_Polzovatel$">
+            <End Role="Polzovatel$" EntitySet="Polzovatel$" />
+            <End Role="histor$" EntitySet="histor$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel$_Rol$" Association="Self.FK_Polzovatel$_Rol$">
+            <End Role="Rol$" EntitySet="Rol$" />
+            <End Role="Polzovatel$" EntitySet="Polzovatel$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel$_StrahovaiKompania$" Association="Self.FK_Polzovatel$_StrahovaiKompania$">
+            <End Role="StrahovaiKompania$" EntitySet="StrahovaiKompania$" />
+            <End Role="Polzovatel$" EntitySet="Polzovatel$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel$_TypeStrahPolic$" Association="Self.FK_Polzovatel$_TypeStrahPolic$">
+            <End Role="TypeStrahPolic$" EntitySet="TypeStrahPolic$" />
+            <End Role="Polzovatel$" EntitySet="Polzovatel$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YslugiVZakazah$_Status$" Association="Self.FK_YslugiVZakazah$_Status$">
+            <End Role="Status$" EntitySet="Status$" />
+            <End Role="YslugiVZakazah$" EntitySet="YslugiVZakazah$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YslugiVZakazah$_Yslugi$" Association="Self.FK_YslugiVZakazah$_Yslugi$">
+            <End Role="Yslugi$" EntitySet="Yslugi$" />
+            <End Role="YslugiVZakazah$" EntitySet="YslugiVZakazah$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YslugiVZakazah$_Zakaz$" Association="Self.FK_YslugiVZakazah$_Zakaz$">
+            <End Role="Zakaz$" EntitySet="Zakaz$" />
+            <End Role="YslugiVZakazah$" EntitySet="YslugiVZakazah$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakaz$_Polzovatel$" Association="Self.FK_Zakaz$_Polzovatel$">
+            <End Role="Polzovatel$" EntitySet="Polzovatel$" />
+            <End Role="Zakaz$" EntitySet="Zakaz$" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakaz$_Status$" Association="Self.FK_Zakaz$_Status$">
+            <End Role="Status$" EntitySet="Status$" />
+            <End Role="Zakaz$" EntitySet="Zakaz$" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MedLabModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Analizator_">
+          <Key>
+            <PropertyRef Name="IDAnalizator" />
+          </Key>
+          <Property Name="IDAnalizator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Analizator" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DanneAnalizatora_" Relationship="Self.FK_DanneAnalizatora__Analizator_" FromRole="Analizator_" ToRole="DanneAnalizatora_" />
+        </EntityType>
+        <EntityType Name="Chet_">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDBug" Type="Int32" />
+          <Property Name="Sum" Type="Double" />
+          <Property Name="dateOt" Type="DateTime" Precision="0" />
+          <Property Name="dateDo" Type="DateTime" Precision="0" />
+          <Property Name="IDStrahKomp" Type="Int32" />
+          <NavigationProperty Name="Polzovatel_" Relationship="Self.FK_Chet__Polzovatel_1" FromRole="Chet_" ToRole="Polzovatel_" />
+          <NavigationProperty Name="StrahovaiKompania_" Relationship="Self.FK_Chet__StrahovaiKompania_" FromRole="Chet_" ToRole="StrahovaiKompania_" />
+        </EntityType>
+        <EntityType Name="DanneAnalizatora_">
+          <Key>
+            <PropertyRef Name="IDDanni" />
+          </Key>
+          <Property Name="IDDanni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAnalizator" Type="Int32" />
+          <Property Name="DateVremaPostupYslugi" Type="DateTime" Precision="3" />
+          <Property Name="VremaVapol" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDLaboranta" Type="Int32" />
+          <Property Name="IDYslugaVZakaze" Type="Int32" />
+          <NavigationProperty Name="Analizator_" Relationship="Self.FK_DanneAnalizatora__Analizator_" FromRole="DanneAnalizatora_" ToRole="Analizator_" />
+          <NavigationProperty Name="Polzovatel_" Relationship="Self.FK_DanneAnalizatora__Polzovatel_" FromRole="DanneAnalizatora_" ToRole="Polzovatel_" />
+          <NavigationProperty Name="YslugiVZakazah_" Relationship="Self.FK_DanneAnalizatora__YslugiVZakazah_" FromRole="DanneAnalizatora_" ToRole="YslugiVZakazah_" />
+        </EntityType>
+        <EntityType Name="histor_">
+          <Key>
+            <PropertyRef Name="IDHistor" />
+          </Key>
+          <Property Name="IDHistor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDPolzovatel" Type="Int32" />
+          <Property Name="ip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DataNach" Type="DateTime" Precision="3" />
+          <Property Name="lastenter" Type="DateTime" Precision="3" />
+          <Property Name="IDPrichina" Type="Int32" />
+          <NavigationProperty Name="IDPrichina_" Relationship="Self.FK_histor__IDPrichina_" FromRole="histor_" ToRole="IDPrichina_" />
+          <NavigationProperty Name="Polzovatel_" Relationship="Self.FK_histor__Polzovatel_" FromRole="histor_" ToRole="Polzovatel_" />
+        </EntityType>
+        <EntityType Name="IDPrichina_">
+          <Key>
+            <PropertyRef Name="IDIDPrichina" />
+          </Key>
+          <Property Name="IDIDPrichina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Prichina" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="histor_" Relationship="Self.FK_histor__IDPrichina_" FromRole="IDPrichina_" ToRole="histor_" />
+        </EntityType>
+        <EntityType Name="Polzovatel_">
+          <Key>
+            <PropertyRef Name="IDPolzovatel" />
+          </Key>
+          <Property Name="IDPolzovatel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="familia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="login" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateHappyBiz" Type="DateTime" Precision="0" />
+          <Property Name="SeriaPasPort" Type="Int32" />
+          <Property Name="NomerPasPort" Type="Int32" />
+          <Property Name="telefon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="numberStrahPolic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDtypetrahPolic" Type="Int32" />
+          <Property Name="IDStrahovaiKompania" Type="Int32" />
+          <Property Name="IDRol" Type="Int32" />
+          <Property Name="kartinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Chet_" Relationship="Self.FK_Chet__Polzovatel_1" FromRole="Polzovatel_" ToRole="Chet_" />
+          <NavigationProperty Name="DanneAnalizatora_" Relationship="Self.FK_DanneAnalizatora__Polzovatel_" FromRole="Polzovatel_" ToRole="DanneAnalizatora_" />
+          <NavigationProperty Name="histor_" Relationship="Self.FK_histor__Polzovatel_" FromRole="Polzovatel_" ToRole="histor_" />
+          <NavigationProperty Name="Rol_" Relationship="Self.FK_Polzovatel__Rol_" FromRole="Polzovatel_" ToRole="Rol_" />
+          <NavigationProperty Name="StrahovaiKompania_" Relationship="Self.FK_Polzovatel__StrahovaiKompania_" FromRole="Polzovatel_" ToRole="StrahovaiKompania_" />
+          <NavigationProperty Name="TypeStrahPolic_" Relationship="Self.FK_Polzovatel__TypeStrahPolic_" FromRole="Polzovatel_" ToRole="TypeStrahPolic_" />
+          <NavigationProperty Name="Zakaz_" Relationship="Self.FK_Zakaz__Polzovatel_" FromRole="Polzovatel_" ToRole="Zakaz_" />
+        </EntityType>
+        <EntityType Name="Rol_">
+          <Key>
+            <PropertyRef Name="IDRol" />
+          </Key>
+          <Property Name="IDRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Polzovatel_" Relationship="Self.FK_Polzovatel__Rol_" FromRole="Rol_" ToRole="Polzovatel_" />
+        </EntityType>
+        <EntityType Name="Status_">
+          <Key>
+            <PropertyRef Name="IDStatus" />
+          </Key>
+          <Property Name="IDStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="YslugiVZakazah_" Relationship="Self.FK_YslugiVZakazah__Status_" FromRole="Status_" ToRole="YslugiVZakazah_" />
+          <NavigationProperty Name="Zakaz_" Relationship="Self.FK_Zakaz__Status_" FromRole="Status_" ToRole="Zakaz_" />
+        </EntityType>
+        <EntityType Name="StrahovaiKompania_">
+          <Key>
+            <PropertyRef Name="IDStrahovaiKompania" />
+          </Key>
+          <Property Name="IDStrahovaiKompania" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="inn" Type="Double" />
+          <Property Name="rc" Type="Double" />
+          <Property Name="bik" Type="Int32" />
+          <NavigationProperty Name="Chet_" Relationship="Self.FK_Chet__StrahovaiKompania_" FromRole="StrahovaiKompania_" ToRole="Chet_" />
+          <NavigationProperty Name="Polzovatel_" Relationship="Self.FK_Polzovatel__StrahovaiKompania_" FromRole="StrahovaiKompania_" ToRole="Polzovatel_" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypeStrahPolic_">
+          <Key>
+            <PropertyRef Name="IDtypetrahPolic" />
+          </Key>
+          <Property Name="IDtypetrahPolic" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typetrahPolic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Polzovatel_" Relationship="Self.FK_Polzovatel__TypeStrahPolic_" FromRole="TypeStrahPolic_" ToRole="Polzovatel_" />
+        </EntityType>
+        <EntityType Name="Yslugi_">
+          <Key>
+            <PropertyRef Name="IDYslugi" />
+          </Key>
+          <Property Name="IDYslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="SrokVapol" Type="Int32" />
+          <Property Name="Ot" Type="Double" />
+          <Property Name="Do" Type="Double" />
+          <Property Name="metka" Type="Int32" />
+          <NavigationProperty Name="YslugiVZakazah_" Relationship="Self.FK_YslugiVZakazah__Yslugi_" FromRole="Yslugi_" ToRole="YslugiVZakazah_" />
+        </EntityType>
+        <EntityType Name="YslugiVZakazah_">
+          <Key>
+            <PropertyRef Name="IDYslugaVZakaze" />
+          </Key>
+          <Property Name="IDYslugaVZakaze" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDZakaz" Type="Int32" />
+          <Property Name="IDYslugi" Type="Int32" />
+          <Property Name="IDStatus" Type="Int32" />
+          <Property Name="ShtihKod" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DanneAnalizatora_" Relationship="Self.FK_DanneAnalizatora__YslugiVZakazah_" FromRole="YslugiVZakazah_" ToRole="DanneAnalizatora_" />
+          <NavigationProperty Name="Status_" Relationship="Self.FK_YslugiVZakazah__Status_" FromRole="YslugiVZakazah_" ToRole="Status_" />
+          <NavigationProperty Name="Yslugi_" Relationship="Self.FK_YslugiVZakazah__Yslugi_" FromRole="YslugiVZakazah_" ToRole="Yslugi_" />
+          <NavigationProperty Name="Zakaz_" Relationship="Self.FK_YslugiVZakazah__Zakaz_" FromRole="YslugiVZakazah_" ToRole="Zakaz_" />
+        </EntityType>
+        <EntityType Name="Zakaz_">
+          <Key>
+            <PropertyRef Name="IDZakaz" />
+          </Key>
+          <Property Name="IDZakaz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateSozdania" Type="DateTime" Precision="3" />
+          <Property Name="IDPolzovatel" Type="Int32" />
+          <Property Name="IDStatus" Type="Int32" />
+          <Property Name="VapolnenieZakaza" Type="Int32" />
+          <NavigationProperty Name="Polzovatel_" Relationship="Self.FK_Zakaz__Polzovatel_" FromRole="Zakaz_" ToRole="Polzovatel_" />
+          <NavigationProperty Name="Status_" Relationship="Self.FK_Zakaz__Status_" FromRole="Zakaz_" ToRole="Status_" />
+          <NavigationProperty Name="YslugiVZakazah_" Relationship="Self.FK_YslugiVZakazah__Zakaz_" FromRole="Zakaz_" ToRole="YslugiVZakazah_" />
+        </EntityType>
+        <Association Name="FK_DanneAnalizatora__Analizator_">
+          <End Role="Analizator_" Type="Self.Analizator_" Multiplicity="0..1" />
+          <End Role="DanneAnalizatora_" Type="Self.DanneAnalizatora_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analizator_">
+              <PropertyRef Name="IDAnalizator" />
+            </Principal>
+            <Dependent Role="DanneAnalizatora_">
+              <PropertyRef Name="IDAnalizator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chet__Polzovatel_1">
+          <End Role="Polzovatel_" Type="Self.Polzovatel_" Multiplicity="0..1" />
+          <End Role="Chet_" Type="Self.Chet_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel_">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="Chet_">
+              <PropertyRef Name="IDBug" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chet__StrahovaiKompania_">
+          <End Role="StrahovaiKompania_" Type="Self.StrahovaiKompania_" Multiplicity="0..1" />
+          <End Role="Chet_" Type="Self.Chet_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StrahovaiKompania_">
+              <PropertyRef Name="IDStrahovaiKompania" />
+            </Principal>
+            <Dependent Role="Chet_">
+              <PropertyRef Name="IDStrahKomp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanneAnalizatora__Polzovatel_">
+          <End Role="Polzovatel_" Type="Self.Polzovatel_" Multiplicity="0..1" />
+          <End Role="DanneAnalizatora_" Type="Self.DanneAnalizatora_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel_">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="DanneAnalizatora_">
+              <PropertyRef Name="IDLaboranta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanneAnalizatora__YslugiVZakazah_">
+          <End Role="YslugiVZakazah_" Type="Self.YslugiVZakazah_" Multiplicity="0..1" />
+          <End Role="DanneAnalizatora_" Type="Self.DanneAnalizatora_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YslugiVZakazah_">
+              <PropertyRef Name="IDYslugaVZakaze" />
+            </Principal>
+            <Dependent Role="DanneAnalizatora_">
+              <PropertyRef Name="IDYslugaVZakaze" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_histor__IDPrichina_">
+          <End Role="IDPrichina_" Type="Self.IDPrichina_" Multiplicity="0..1" />
+          <End Role="histor_" Type="Self.histor_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IDPrichina_">
+              <PropertyRef Name="IDIDPrichina" />
+            </Principal>
+            <Dependent Role="histor_">
+              <PropertyRef Name="IDPrichina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_histor__Polzovatel_">
+          <End Role="Polzovatel_" Type="Self.Polzovatel_" Multiplicity="0..1" />
+          <End Role="histor_" Type="Self.histor_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel_">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="histor_">
+              <PropertyRef Name="IDPolzovatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel__Rol_">
+          <End Role="Rol_" Type="Self.Rol_" Multiplicity="0..1" />
+          <End Role="Polzovatel_" Type="Self.Polzovatel_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol_">
+              <PropertyRef Name="IDRol" />
+            </Principal>
+            <Dependent Role="Polzovatel_">
+              <PropertyRef Name="IDRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel__StrahovaiKompania_">
+          <End Role="StrahovaiKompania_" Type="Self.StrahovaiKompania_" Multiplicity="0..1" />
+          <End Role="Polzovatel_" Type="Self.Polzovatel_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StrahovaiKompania_">
+              <PropertyRef Name="IDStrahovaiKompania" />
+            </Principal>
+            <Dependent Role="Polzovatel_">
+              <PropertyRef Name="IDStrahovaiKompania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel__TypeStrahPolic_">
+          <End Role="TypeStrahPolic_" Type="Self.TypeStrahPolic_" Multiplicity="0..1" />
+          <End Role="Polzovatel_" Type="Self.Polzovatel_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeStrahPolic_">
+              <PropertyRef Name="IDtypetrahPolic" />
+            </Principal>
+            <Dependent Role="Polzovatel_">
+              <PropertyRef Name="IDtypetrahPolic" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakaz__Polzovatel_">
+          <End Role="Polzovatel_" Type="Self.Polzovatel_" Multiplicity="0..1" />
+          <End Role="Zakaz_" Type="Self.Zakaz_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovatel_">
+              <PropertyRef Name="IDPolzovatel" />
+            </Principal>
+            <Dependent Role="Zakaz_">
+              <PropertyRef Name="IDPolzovatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YslugiVZakazah__Status_">
+          <End Role="Status_" Type="Self.Status_" Multiplicity="0..1" />
+          <End Role="YslugiVZakazah_" Type="Self.YslugiVZakazah_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_">
+              <PropertyRef Name="IDStatus" />
+            </Principal>
+            <Dependent Role="YslugiVZakazah_">
+              <PropertyRef Name="IDStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakaz__Status_">
+          <End Role="Status_" Type="Self.Status_" Multiplicity="0..1" />
+          <End Role="Zakaz_" Type="Self.Zakaz_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_">
+              <PropertyRef Name="IDStatus" />
+            </Principal>
+            <Dependent Role="Zakaz_">
+              <PropertyRef Name="IDStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YslugiVZakazah__Yslugi_">
+          <End Role="Yslugi_" Type="Self.Yslugi_" Multiplicity="0..1" />
+          <End Role="YslugiVZakazah_" Type="Self.YslugiVZakazah_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yslugi_">
+              <PropertyRef Name="IDYslugi" />
+            </Principal>
+            <Dependent Role="YslugiVZakazah_">
+              <PropertyRef Name="IDYslugi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YslugiVZakazah__Zakaz_">
+          <End Role="Zakaz_" Type="Self.Zakaz_" Multiplicity="0..1" />
+          <End Role="YslugiVZakazah_" Type="Self.YslugiVZakazah_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zakaz_">
+              <PropertyRef Name="IDZakaz" />
+            </Principal>
+            <Dependent Role="YslugiVZakazah_">
+              <PropertyRef Name="IDZakaz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MedLabEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Analizator_" EntityType="Self.Analizator_" />
+          <EntitySet Name="Chet_" EntityType="Self.Chet_" />
+          <EntitySet Name="DanneAnalizatora_" EntityType="Self.DanneAnalizatora_" />
+          <EntitySet Name="histor_" EntityType="Self.histor_" />
+          <EntitySet Name="IDPrichina_" EntityType="Self.IDPrichina_" />
+          <EntitySet Name="Polzovatel_" EntityType="Self.Polzovatel_" />
+          <EntitySet Name="Rol_" EntityType="Self.Rol_" />
+          <EntitySet Name="Status_" EntityType="Self.Status_" />
+          <EntitySet Name="StrahovaiKompania_" EntityType="Self.StrahovaiKompania_" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TypeStrahPolic_" EntityType="Self.TypeStrahPolic_" />
+          <EntitySet Name="Yslugi_" EntityType="Self.Yslugi_" />
+          <EntitySet Name="YslugiVZakazah_" EntityType="Self.YslugiVZakazah_" />
+          <EntitySet Name="Zakaz_" EntityType="Self.Zakaz_" />
+          <AssociationSet Name="FK_DanneAnalizatora__Analizator_" Association="Self.FK_DanneAnalizatora__Analizator_">
+            <End Role="Analizator_" EntitySet="Analizator_" />
+            <End Role="DanneAnalizatora_" EntitySet="DanneAnalizatora_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chet__Polzovatel_1" Association="Self.FK_Chet__Polzovatel_1">
+            <End Role="Polzovatel_" EntitySet="Polzovatel_" />
+            <End Role="Chet_" EntitySet="Chet_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chet__StrahovaiKompania_" Association="Self.FK_Chet__StrahovaiKompania_">
+            <End Role="StrahovaiKompania_" EntitySet="StrahovaiKompania_" />
+            <End Role="Chet_" EntitySet="Chet_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanneAnalizatora__Polzovatel_" Association="Self.FK_DanneAnalizatora__Polzovatel_">
+            <End Role="Polzovatel_" EntitySet="Polzovatel_" />
+            <End Role="DanneAnalizatora_" EntitySet="DanneAnalizatora_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanneAnalizatora__YslugiVZakazah_" Association="Self.FK_DanneAnalizatora__YslugiVZakazah_">
+            <End Role="YslugiVZakazah_" EntitySet="YslugiVZakazah_" />
+            <End Role="DanneAnalizatora_" EntitySet="DanneAnalizatora_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_histor__IDPrichina_" Association="Self.FK_histor__IDPrichina_">
+            <End Role="IDPrichina_" EntitySet="IDPrichina_" />
+            <End Role="histor_" EntitySet="histor_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_histor__Polzovatel_" Association="Self.FK_histor__Polzovatel_">
+            <End Role="Polzovatel_" EntitySet="Polzovatel_" />
+            <End Role="histor_" EntitySet="histor_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel__Rol_" Association="Self.FK_Polzovatel__Rol_">
+            <End Role="Rol_" EntitySet="Rol_" />
+            <End Role="Polzovatel_" EntitySet="Polzovatel_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel__StrahovaiKompania_" Association="Self.FK_Polzovatel__StrahovaiKompania_">
+            <End Role="StrahovaiKompania_" EntitySet="StrahovaiKompania_" />
+            <End Role="Polzovatel_" EntitySet="Polzovatel_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel__TypeStrahPolic_" Association="Self.FK_Polzovatel__TypeStrahPolic_">
+            <End Role="TypeStrahPolic_" EntitySet="TypeStrahPolic_" />
+            <End Role="Polzovatel_" EntitySet="Polzovatel_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakaz__Polzovatel_" Association="Self.FK_Zakaz__Polzovatel_">
+            <End Role="Polzovatel_" EntitySet="Polzovatel_" />
+            <End Role="Zakaz_" EntitySet="Zakaz_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YslugiVZakazah__Status_" Association="Self.FK_YslugiVZakazah__Status_">
+            <End Role="Status_" EntitySet="Status_" />
+            <End Role="YslugiVZakazah_" EntitySet="YslugiVZakazah_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakaz__Status_" Association="Self.FK_Zakaz__Status_">
+            <End Role="Status_" EntitySet="Status_" />
+            <End Role="Zakaz_" EntitySet="Zakaz_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YslugiVZakazah__Yslugi_" Association="Self.FK_YslugiVZakazah__Yslugi_">
+            <End Role="Yslugi_" EntitySet="Yslugi_" />
+            <End Role="YslugiVZakazah_" EntitySet="YslugiVZakazah_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YslugiVZakazah__Zakaz_" Association="Self.FK_YslugiVZakazah__Zakaz_">
+            <End Role="Zakaz_" EntitySet="Zakaz_" />
+            <End Role="YslugiVZakazah_" EntitySet="YslugiVZakazah_" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MedLabModelContainer" CdmEntityContainer="MedLabEntities">
+          <EntitySetMapping Name="Analizator_">
+            <EntityTypeMapping TypeName="MedLabModel.Analizator_">
+              <MappingFragment StoreEntitySet="Analizator$">
+                <ScalarProperty Name="IDAnalizator" ColumnName="IDAnalizator" />
+                <ScalarProperty Name="Analizator" ColumnName="Analizator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chet_">
+            <EntityTypeMapping TypeName="MedLabModel.Chet_">
+              <MappingFragment StoreEntitySet="Chet$">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDBug" ColumnName="IDBug" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="dateOt" ColumnName="dateOt" />
+                <ScalarProperty Name="dateDo" ColumnName="dateDo" />
+                <ScalarProperty Name="IDStrahKomp" ColumnName="IDStrahKomp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanneAnalizatora_">
+            <EntityTypeMapping TypeName="MedLabModel.DanneAnalizatora_">
+              <MappingFragment StoreEntitySet="DanneAnalizatora$">
+                <ScalarProperty Name="IDDanni" ColumnName="IDDanni" />
+                <ScalarProperty Name="IDAnalizator" ColumnName="IDAnalizator" />
+                <ScalarProperty Name="DateVremaPostupYslugi" ColumnName="DateVremaPostupYslugi" />
+                <ScalarProperty Name="VremaVapol" ColumnName="VremaVapol" />
+                <ScalarProperty Name="IDLaboranta" ColumnName="IDLaboranta" />
+                <ScalarProperty Name="IDYslugaVZakaze" ColumnName="IDYslugaVZakaze" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="histor_">
+            <EntityTypeMapping TypeName="MedLabModel.histor_">
+              <MappingFragment StoreEntitySet="histor$">
+                <ScalarProperty Name="IDHistor" ColumnName="IDHistor" />
+                <ScalarProperty Name="IDPolzovatel" ColumnName="IDPolzovatel" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="DataNach" ColumnName="DataNach" />
+                <ScalarProperty Name="lastenter" ColumnName="lastenter" />
+                <ScalarProperty Name="IDPrichina" ColumnName="IDPrichina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IDPrichina_">
+            <EntityTypeMapping TypeName="MedLabModel.IDPrichina_">
+              <MappingFragment StoreEntitySet="IDPrichina$">
+                <ScalarProperty Name="IDIDPrichina" ColumnName="IDIDPrichina" />
+                <ScalarProperty Name="Prichina" ColumnName="Prichina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polzovatel_">
+            <EntityTypeMapping TypeName="MedLabModel.Polzovatel_">
+              <MappingFragment StoreEntitySet="Polzovatel$">
+                <ScalarProperty Name="IDPolzovatel" ColumnName="IDPolzovatel" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="familia" ColumnName="familia" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="dateHappyBiz" ColumnName="dateHappyBiz" />
+                <ScalarProperty Name="SeriaPasPort" ColumnName="SeriaPasPort" />
+                <ScalarProperty Name="NomerPasPort" ColumnName="NomerPasPort" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="numberStrahPolic" ColumnName="numberStrahPolic" />
+                <ScalarProperty Name="IDtypetrahPolic" ColumnName="IDtypetrahPolic" />
+                <ScalarProperty Name="IDStrahovaiKompania" ColumnName="IDStrahovaiKompania" />
+                <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+                <ScalarProperty Name="kartinka" ColumnName="kartinka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol_">
+            <EntityTypeMapping TypeName="MedLabModel.Rol_">
+              <MappingFragment StoreEntitySet="Rol$">
+                <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_">
+            <EntityTypeMapping TypeName="MedLabModel.Status_">
+              <MappingFragment StoreEntitySet="Status$">
+                <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StrahovaiKompania_">
+            <EntityTypeMapping TypeName="MedLabModel.StrahovaiKompania_">
+              <MappingFragment StoreEntitySet="StrahovaiKompania$">
+                <ScalarProperty Name="IDStrahovaiKompania" ColumnName="IDStrahovaiKompania" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="inn" ColumnName="inn" />
+                <ScalarProperty Name="rc" ColumnName="rc" />
+                <ScalarProperty Name="bik" ColumnName="bik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MedLabModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeStrahPolic_">
+            <EntityTypeMapping TypeName="MedLabModel.TypeStrahPolic_">
+              <MappingFragment StoreEntitySet="TypeStrahPolic$">
+                <ScalarProperty Name="IDtypetrahPolic" ColumnName="IDtypetrahPolic" />
+                <ScalarProperty Name="typetrahPolic" ColumnName="typetrahPolic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yslugi_">
+            <EntityTypeMapping TypeName="MedLabModel.Yslugi_">
+              <MappingFragment StoreEntitySet="Yslugi$">
+                <ScalarProperty Name="IDYslugi" ColumnName="IDYslugi" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SrokVapol" ColumnName="SrokVapol" />
+                <ScalarProperty Name="Ot" ColumnName="Ot" />
+                <ScalarProperty Name="Do" ColumnName="Do" />
+                <ScalarProperty Name="metka" ColumnName="metka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YslugiVZakazah_">
+            <EntityTypeMapping TypeName="MedLabModel.YslugiVZakazah_">
+              <MappingFragment StoreEntitySet="YslugiVZakazah$">
+                <ScalarProperty Name="IDYslugaVZakaze" ColumnName="IDYslugaVZakaze" />
+                <ScalarProperty Name="IDZakaz" ColumnName="IDZakaz" />
+                <ScalarProperty Name="IDYslugi" ColumnName="IDYslugi" />
+                <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+                <ScalarProperty Name="ShtihKod" ColumnName="ShtihKod" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zakaz_">
+            <EntityTypeMapping TypeName="MedLabModel.Zakaz_">
+              <MappingFragment StoreEntitySet="Zakaz$">
+                <ScalarProperty Name="IDZakaz" ColumnName="IDZakaz" />
+                <ScalarProperty Name="DateSozdania" ColumnName="DateSozdania" />
+                <ScalarProperty Name="IDPolzovatel" ColumnName="IDPolzovatel" />
+                <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+                <ScalarProperty Name="VapolnenieZakaza" ColumnName="VapolnenieZakaza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

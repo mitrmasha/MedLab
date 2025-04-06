@@ -1,0 +1,64 @@
+﻿<Window x:Class="WpfApp1.DobavitYslugu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="DobavitYslugu" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="390*"/>
+            <RowDefinition Height="27*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="767*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#FFF1DDF6" BorderThickness="1" Margin="1,1,2,0" Grid.Row="1" Grid.Column="1"/>
+        <TextBox x:Name="VremaVapol" TextWrapping="Wrap" Text="TextBox" Margin="0,44,16,0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="72" Height="22" VerticalAlignment="Top"/>
+        <Label Content="Время выполнения:" HorizontalAlignment="Left" Margin="602,10,0,0" VerticalAlignment="Top" Height="29" Width="153" Grid.Column="1" Grid.Row="1" FontFamily="Arial" FontSize="15"/>
+        <Label Content="Номер заказа:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="29" Width="132" Grid.Column="1" FontFamily="Arial" FontSize="15" Margin="0,10,622,0" Grid.Row="1"/>
+        <TextBox x:Name="NumberZakaz" TextWrapping="Wrap" Text="TextBox" Grid.Column="1" Grid.Row="1" Margin="124,14,0,0" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105"/>
+        <Label Content="Имя:" HorizontalAlignment="Right"  VerticalAlignment="Top" Height="29" Width="62" Grid.Column="1" Grid.Row="1" FontFamily="Arial" FontSize="15" Margin="0,39,688,0"/>
+        <TextBox x:Name="NameName" TextWrapping="Wrap"  VerticalAlignment="Top" Height="24" HorizontalAlignment="Left" Width="123" Grid.Row="1" Grid.Column="1" Margin="77,42,0,0"/>
+        <Label Content="Фамилия:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="29" Width="84" Grid.Column="1" Grid.Row="1" FontFamily="Arial" FontSize="15" Margin="0,73,666,0"/>
+        <TextBox x:Name="familiName" TextWrapping="Wrap"  VerticalAlignment="Top" Height="23" HorizontalAlignment="Left" Width="158" Grid.Row="1" Grid.Column="1" Margin="97,76,0,0"/>
+        <Image x:Name="GenBarcode" Margin="486,14,186,294" Grid.Column="1" Grid.Row="1" Visibility="Visible"/>
+        <DataGrid x:Name="Result" AutoGenerateColumns="False" Grid.Column="1" Margin="11,171,10,39" Grid.Row="1" KeyDown="Result_KeyDown" SelectionChanged="Result_SelectionChanged" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Выбор">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="Ysluga" IsChecked="{Binding qs}" Checked="Ysluga_Checked" Indeterminate="Ysluga_Indeterminate" Unchecked="Ysluga_Unchecked" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Код услуги" Binding="{Binding IDYslugi}"/>
+                <DataGridTextColumn Header="Название услуги" Binding="{Binding Service}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Срок выполнения" Binding="{Binding SrokVapol}"/>
+                <DataGridTextColumn Header="Отклонение от" Binding="{Binding Ot}"/>
+                <DataGridTextColumn Header="Отклонение до" Binding="{Binding Do}"/>
+                <DataGridTemplateColumn Header="Действие">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+ <Hyperlink Click="ShtrihCod_Click"> Сформировать штрих-код </Hyperlink>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Сохранить" Foreground="White" Background="#FFEAB9F6" FontSize="12" FontFamily="Arial Black" BorderBrush="Black" Margin="0,0,10,10" Grid.Column="1" Grid.Row="1" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="118" Click="Button_Click"/>
+        <Label Content="Дата поступления заказа:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="29" Width="199" Grid.Column="1" Grid.Row="1" FontFamily="Arial" FontSize="15" Margin="0,104,551,0"/>
+        <DatePicker x:Name="Date" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="154" Margin="219,106,0,0"/>
+        <Label Content="Цена:" HorizontalAlignment="Left" Margin="679,69,0,0" VerticalAlignment="Top" Height="29" Width="62" Grid.Column="1" Grid.Row="1" FontFamily="Arial" FontSize="15"/>
+        <TextBox x:Name="Chena" TextWrapping="Wrap" Text="TextBox" Margin="0,98,16,0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="72" Height="22" VerticalAlignment="Top"/>
+        <TextBox x:Name="NumberShtrih" TextWrapping="Wrap"  VerticalAlignment="Top" Height="24" HorizontalAlignment="Left" Width="124" Grid.Row="1" Grid.Column="1" Margin="489,133,0,0" KeyDown="NumberShtrih_KeyDown"/>
+        <Label Content="Введите код для штрих-кода:" HorizontalAlignment="Left" Margin="433,104,0,0" VerticalAlignment="Top" Height="29" Width="219" Grid.Column="1" Grid.Row="1" FontFamily="Arial" FontSize="15"/>
+    </Grid>
+</Window>

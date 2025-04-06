@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e5cc8ed38374f8cbaf8cf2299870017" Name="Diagram1">
+        <EntityTypeShape EntityType="MedLabModel.Analizator_" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Chet_" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.DanneAnalizatora_" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.histor_" Width="1.5" PointX="11.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.IDPrichina_" Width="1.5" PointX="9" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Polzovatel_" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Rol_" Width="1.5" PointX="3.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Status_" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.StrahovaiKompania_" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.sysdiagram" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.TypeStrahPolic_" Width="1.5" PointX="3.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Yslugi_" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.YslugiVZakazah_" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Zakaz_" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="MedLabModel.FK_DanneAnalizatora__Analizator_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Chet__Polzovatel_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Chet__StrahovaiKompania_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_DanneAnalizatora__Polzovatel_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_DanneAnalizatora__YslugiVZakazah_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_histor__IDPrichina_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_histor__Polzovatel_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Polzovatel__Rol_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Polzovatel__StrahovaiKompania_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Polzovatel__TypeStrahPolic_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Zakaz__Polzovatel_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_YslugiVZakazah__Status_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Zakaz__Status_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_YslugiVZakazah__Yslugi_" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_YslugiVZakazah__Zakaz_" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
